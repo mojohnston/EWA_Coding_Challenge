@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package sensorData;
+
+service SensorData{
+  // A simple RPC.
+  //
+  // Obtains the MessageResponse at a given position.
+ rpc GetServerResponse(SensorMessage) returns (MessageResponse) {}
+
+}
+
+message SensorMessage{
+ double resistance = 1;
+ double humidity = 2;
+ double tempC = 3;
+ double tempF = 4;
+}
+
+message MessageResponse{
+ string responseMessage = 1;
+ bool received = 2;
+}
